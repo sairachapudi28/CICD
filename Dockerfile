@@ -1,11 +1,21 @@
-FROM python:3
+# Use the official Python base image
+FROM python:3.9
 
-WORKDIR /sai
+# Set the working directory inside the container
+WORKDIR /app
 
+# Copy the requirements file to the container
+COPY requirements.txt .
+
+# Install the Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the application code to the container
 COPY . .
 
-RUN pip install -r requirements.txt
-
+# Expose port 8000
 EXPOSE 8000
 
-CMD ["python","sai.py","runserver","0.0.0.0:8000"]
+# Run the application
+CMD ["python", "app.py"]
+
