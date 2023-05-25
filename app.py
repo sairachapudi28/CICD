@@ -8,5 +8,5 @@ def hello():
 
 if __name__ == '__main__':
     # Use Gunicorn as the WSGI server
-    app.run()
+    app.run(host='10.142.0.5', port ='3000' )
 
