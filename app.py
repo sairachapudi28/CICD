@@ -4,8 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return "This is Sai Rachapudi
-"
+    return "This is Sai Rachapudi"
 
 if __name__ == '__main__':
     # Use Gunicorn as the WSGI server
