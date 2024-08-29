@@ -1,21 +1,15 @@
-# Use the official Python base image
-FROM python:3.9
+FROM python:3.11-slim-buster
 
-# Set the working directory inside the container
-WORKDIR /app
-
-# Copy the requirements file to the container
+# Install dependencies
 COPY requirements.txt .
+RUN pip install -r requirements.txt
 
-# Install the Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the application code to the container
+# Copy application code
 COPY . .
 
-# Expose port 5500
-EXPOSE 9000
+# Expose the port
+EXPOSE 5000
 
-# Run the application
+# Define the command to run the application
 CMD ["python", "app.py"]
 
